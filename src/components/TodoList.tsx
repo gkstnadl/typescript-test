@@ -2,7 +2,7 @@ import { Todo } from '../types';
 
 interface TodoListProps {
   todos: Todo[];
-  toggleTodo: (id: number) => void;
+  toggleTodo: (id: string) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo }) => {
