@@ -1,4 +1,5 @@
 import { Todo } from '../types';
+import TodoItem from 'components/TodoItem';
 
 interface TodoListProps {
   todos: Todo[];
@@ -7,15 +8,24 @@ interface TodoListProps {
 
 const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo }) => {
   return (
-    <div>
-      {todos.map((todo) => (
-        <div key={todo.id} onClick={() => toggleTodo(todo.id)}>
-          {todo.title}
-          {todo.contents}
-          <button>{todo.isCompleted ? '완료' : '취소'}</button>
-        </div>
-      ))}
-    </div>
+    <>
+      <div>
+        <h3>해야할 일🔥</h3>
+        {todos
+          .filter((item) => !item.isCompleted) // 완료되지 않은 할 일
+          .map((item) => {
+            return <TodoItem key={item.id} todo={item} toggleTodo={() => toggleTodo(item.id)} />;
+          })}
+      </div>
+      <div>
+        <h3>완료한 일✔️</h3>
+        {todos
+          .filter((item) => item.isCompleted) // 완료된 할 일
+          .map((item) => {
+            return <TodoItem key={item.id} todo={item} toggleTodo={() => toggleTodo(item.id)} />;
+          })}
+      </div>
+    </>
   );
 };
 
