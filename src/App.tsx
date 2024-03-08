@@ -1,4 +1,4 @@
-import 'styles/globalStyled.css';
+import 'styles/GlobalStyled.css';
 import Router from './shared/Router';
 
 const App: React.FC = () => {
