@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border: 1px solid #9dc0fb;
+  border-radius: 10px;
+  margin: 20px 0px;
+}
+
+.inputform {
+  display: flex;
+  width: 100%;
+  margin: 20px 30px;
+  gap: 20px;
+  align-items: center;
+}
+
+.card {
+  width: 25%;
+}
+
+.todoitem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+
+.todoitem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoitem-title {
+  font-size: 20px;
+}
+
+.todoitem-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.todolist {
+  margin: 30px 30px;
+  
+}
+
+.todolist-title {
+  font-size: 30px;
+  font-weight: 800;
+}

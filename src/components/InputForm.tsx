@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Todo } from '../types';
+import 'styles/components.css';
 
 interface InputFormProps {
   addTodo: (title: string, contents: string) => void;
@@ -29,22 +29,28 @@ const InputForm: React.FC<InputFormProps> = ({ addTodo }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="inputform" onSubmit={handleSubmit}>
+        <label htmlFor="title">제목</label>
         <input
           type="text"
           id="title"
           value={title}
           placeholder="제목을 입력해주세요.(10자이내)"
           onChange={handleTitleChange}
+          className="input input-bordered w-full max-w-xs"
         />
+        <label htmlFor="title">내용</label>
         <input
           type="text"
           id="contents"
           value={contents}
           placeholder="내용을 입력해주세요."
           onChange={handleContentsChange}
+          className="input input-bordered w-full max-w-xs"
         />
-        <button type="submit">추가</button>
+        <button className="btn btn-neutral" type="submit">
+          추가하기
+        </button>
       </form>
     </div>
   );

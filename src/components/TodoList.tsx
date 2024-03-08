@@ -1,5 +1,6 @@
 import { Todo } from '../types';
 import TodoItem from 'components/TodoItem';
+import 'styles/components.css';
 
 interface TodoListProps {
   todos: Todo[];
@@ -10,8 +11,8 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo, removeTodo }) => {
   return (
     <>
-      <div>
-        <h3>해야할 일🔥</h3>
+      <div className="todolist">
+        <h3 className="todolist-title">Working..🔥</h3>
         {todos
           .filter((item) => !item.isCompleted)
           .map((item) => (
@@ -23,8 +24,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo, removeTodo }) =>
             />
           ))}
       </div>
-      <div>
-        <h3>완료한 일✔️</h3>
+      <div className="todolist">
+        <h3 className="todolist-title">Done..✔️</h3>
         {todos
           .filter((item) => item.isCompleted)
           .map((item) => (

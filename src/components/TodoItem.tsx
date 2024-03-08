@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Todo } from 'types';
+import 'styles/components.css';
 
 interface TodoProps {
   todo: Todo;
@@ -15,19 +16,27 @@ const TodoItem: React.FC<TodoProps> = ({ todo, toggleTodo, removeTodo }) => {
   };
 
   return (
-    <div>
-      <div>
-        <p onClick={handleDetailPageLinkClick}>[상세보기]</p>
-        <p>{todo.title}</p>
+    <>
+      <div className="card bg-base-100 shadow-xl">
+        <div className="todoitem">
+          <div className="todoitem-header">
+            <p className="todoitem-title">{todo.title}</p>
+            <p onClick={handleDetailPageLinkClick}>[상세보기]</p>
+          </div>
+          <div />
+          <p>{todo.contents}</p>
+          <div />
+          <div className="todoitem-btns">
+            <button className="btn" onClick={removeTodo}>
+              삭제하기
+            </button>
+            <button className="btn btn-primary" onClick={toggleTodo}>
+              {todo.isCompleted ? '완료하기' : '취소하기'}
+            </button>
+          </div>
+        </div>
       </div>
-      <div />
-      <p>{todo.contents}</p>
-      <div />
-      <div>
-        <button onClick={removeTodo}>삭제</button>
-        <button onClick={toggleTodo}>{todo.isCompleted ? '완료' : '취소'}</button>
-      </div>
-    </div>
+    </>
   );
 };
 
