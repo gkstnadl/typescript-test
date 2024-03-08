@@ -1,44 +1,28 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo, selectTodos, toggleTodo, removeTodo } from 'test-redux/modules/todoSlice';
 import InputForm from 'components/InputForm';
 import TodoList from 'components/TodoList';
-import { Todo } from 'types';
-import { nanoid } from 'nanoid';
-
-const initialTodos: Todo[] = [
-  {
-    id: '1',
-    title: 'TypeScript 과제',
-    contents: 'Lv1 ~ Lv5 과제끝내기',
-    isCompleted: false
-  },
-  {
-    id: '2',
-    title: 'TypeScript 학습',
-    contents: 'TypeScript 구현해보기',
-    isCompleted: true
-  }
-];
 
 const Main: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+  const dispatch = useDispatch();
+  const todos = useSelector(selectTodos);
 
-  const toggleTodo = (id: string) => {
-    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)));
+  const handleAddTodo = (title: string, contents: string) => {
+    dispatch(addTodo(title, contents));
   };
 
-  const removeTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const handleToggleTodo = (id: string) => {
+    dispatch(toggleTodo(id));
   };
 
-  const addTodo = (title: string, contents: string) => {
-    const newTodo = { id: nanoid(), title, contents, isCompleted: false };
-    setTodos([...todos, newTodo]);
+  const handleRemoveTodo = (id: string) => {
+    dispatch(removeTodo(id));
   };
 
   return (
     <div>
-      <InputForm addTodo={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+      <InputForm addTodo={handleAddTodo} />
+      <TodoList todos={todos} toggleTodo={handleToggleTodo} removeTodo={handleRemoveTodo} />
     </div>
   );
 };
