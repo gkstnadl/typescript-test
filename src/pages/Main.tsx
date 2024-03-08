@@ -7,14 +7,14 @@ import { nanoid } from 'nanoid';
 const initialTodos: Todo[] = [
   {
     id: '1',
-    title: '할 일 1',
-    contents: '할 일 1 내용',
+    title: 'TypeScript 과제',
+    contents: 'Lv1 ~ Lv5 과제끝내기',
     isCompleted: false
   },
   {
     id: '2',
-    title: '할 일 2',
-    contents: '할 일 2 내용',
+    title: 'TypeScript 학습',
+    contents: 'TypeScript 구현해보기',
     isCompleted: true
   }
 ];

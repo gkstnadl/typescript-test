@@ -31,7 +31,7 @@ const TodoItem: React.FC<TodoProps> = ({ todo, toggleTodo, removeTodo }) => {
               삭제하기
             </button>
             <button className="btn btn-primary" onClick={toggleTodo}>
-              {todo.isCompleted ? '완료하기' : '취소하기'}
+              {todo.isCompleted ? '취소하기' : '완료하기'}
             </button>
           </div>
         </div>

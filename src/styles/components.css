@@ -9,14 +9,9 @@
 
 .inputform {
   display: flex;
-  width: 100%;
   margin: 20px 30px;
   gap: 20px;
   align-items: center;
-}
-
-.card {
-  width: 25%;
 }
 
 .todoitem {
@@ -30,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .todoitem-title {
@@ -43,10 +39,16 @@
 
 .todolist {
   margin: 30px 30px;
-  
 }
 
 .todolist-title {
   font-size: 30px;
   font-weight: 800;
+}
+
+.todolist-items {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  gap: 20px;
 }
