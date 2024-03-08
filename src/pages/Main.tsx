@@ -27,7 +27,9 @@ const Main: React.FC = () => {
   };
 
   const removeTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    }
   };
 
   const addTodo = (title: string, contents: string) => {
