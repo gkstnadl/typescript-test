@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import InputForm from 'components/InputForm';
 import TodoList from 'components/TodoList';
 import { Todo } from 'types';
+import { nanoid } from 'nanoid';
 
 const initialTodos: Todo[] = [
   {
@@ -17,15 +19,26 @@ const initialTodos: Todo[] = [
   }
 ];
 
-const toggleTodo = (id: string) => {
-  console.log('toggleTodo', id);
-};
-
 const Main: React.FC = () => {
+  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+
+  const toggleTodo = (id: string) => {
+    setTodos(todos.map((todo) => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)));
+  };
+
+  const removeTodo = (id: string) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const addTodo = (title: string, contents: string) => {
+    const newTodo = { id: nanoid(), title, contents, isCompleted: false };
+    setTodos([...todos, newTodo]);
+  };
+
   return (
     <div>
-      <InputForm />
-      <TodoList todos={initialTodos} toggleTodo={toggleTodo} />
+      <InputForm addTodo={addTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
     </div>
   );
 };

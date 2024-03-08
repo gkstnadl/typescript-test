@@ -1,13 +1,13 @@
 import 'styles/GlobalStyled.css';
-import Router from './shared/Router';
 import './input.css';
+import Router from './shared/Router';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <Router />
     </>
   );
-}
+};
 
 export default App;

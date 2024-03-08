@@ -3,8 +3,8 @@ import React from 'react';
 const Header: React.FC = () => {
   return (
     <div>
-      <p>Sparta Coding Club</p>
-      <p>TODO APP</p>
+      <p>My Todo List</p>
+      <p>React_4</p>
     </div>
   );
 };
